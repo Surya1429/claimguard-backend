@@ -14,3 +14,10 @@
 - roles("X") is stored as authority "ROLE_X".
 - {noop} = plain-text password, only for learning.
 - Config decides which filters are in the chain (no formLogin → no login page filters).
+
+## Day 3
+- App connects to MySQL using its own DB user, not root (least privilege).
+- User entity: email = login username (unique), password stores a BCrypt hash (never plain text).
+- role = WHAT the user can do; clientId = WHOSE data they can see; enabled = can they log in.
+- Don't use @Data on entities (toString could log the password).
+- Security still uses in-memory users today; tomorrow it will read from this table.
